@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>안석환 | Portfolio 2026</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; font-family: 'Apple SD Gothic Neo', sans-serif; color: #fff; }
+
+  .header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(17,17,46,0.95); backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 32px; height: 56px;
+  }
+  .header-title { font-size: 0.95rem; font-weight: 700; color: #fff; }
+  .header-title span { color: #60a5fa; }
+  .header-links { display: flex; gap: 16px; }
+  .header-links a {
+    font-size: 0.82rem; color: #9ca3af; text-decoration: none;
+    padding: 6px 14px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1);
+    transition: all 0.2s;
+  }
+  .header-links a:hover { color: #fff; background: rgba(255,255,255,0.08); }
+  .header-links a.primary {
+    background: #2563eb; border-color: #2563eb; color: #fff;
+  }
+  .header-links a.primary:hover { background: #1d4ed8; }
+
+  .pdf-container {
+    padding-top: 56px;
+    width: 100%; min-height: 100vh;
+    display: flex; flex-direction: column; align-items: center;
+    background: #111;
+  }
+
+  /* PDF.js 캔버스 래퍼 */
+  #pdf-viewer { width: 100%; max-width: 900px; padding: 24px 16px; }
+
+  .page-canvas {
+    display: block;
+    width: 100%;
+    margin: 0 auto 16px auto;
+    border-radius: 6px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+    background: #fff;
+  }
+
+  .loading {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 80px 0; gap: 16px; color: #9ca3af;
+  }
+  .spinner {
+    width: 40px; height: 40px; border: 3px solid rgba(255,255,255,0.1);
+    border-top-color: #2563eb; border-radius: 50%; animation: spin 0.8s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .controls {
+    position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+    background: rgba(17,17,46,0.95); backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.1); border-radius: 40px;
+    padding: 10px 24px; display: flex; align-items: center; gap: 16px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    font-size: 0.85rem; color: #d1d5db;
+  }
+  .controls button {
+    background: rgba(255,255,255,0.08); border: none; color: #fff;
+    width: 32px; height: 32px; border-radius: 50%; cursor: pointer; font-size: 1rem;
+    display: flex; align-items: center; justify-content: center; transition: background 0.2s;
+  }
+  .controls button:hover { background: #2563eb; }
+  .controls button:disabled { opacity: 0.3; cursor: default; }
+  .page-info { font-size: 0.82rem; color: #9ca3af; white-space: nowrap; }
+
+  @media (max-width: 600px) {
+    .header { padding: 0 16px; }
+    .header-title { font-size: 0.82rem; }
+    .header-links a { font-size: 0.75rem; padding: 4px 10px; }
+    .controls { bottom: 16px; padding: 8px 16px; gap: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-title">안석환 <span>Portfolio 2026</span></div>
+  <div class="header-links">
+    <a href="https://newlifeansh.github.io/portfolio-v2/" target="_blank">웹 포트폴리오</a>
+    <a href="portfolio.pdf" download class="primary">PDF 다운로드</a>
+  </div>
+</div>
+
+<div class="pdf-container">
+  <div id="pdf-viewer">
+    <div class="loading" id="loading">
+      <div class="spinner"></div>
+      <span>포트폴리오 불러오는 중...</span>
+    </div>
+  </div>
+</div>
+
+<div class="controls" id="controls" style="display:none">
+  <button id="prev" title="이전">‹</button>
+  <span class="page-info"><span id="current-page">1</span> / <span id="total-pages">-</span></span>
+  <button id="next" title="다음">›</button>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script>
+  pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+  const url = 'portfolio.pdf';
+  let pdfDoc = null;
+  let renderedPages = 0;
+
+  async function renderPage(page, index) {
+    const container = document.getElementById('pdf-viewer');
+    const scale = Math.min(window.innerWidth * 0.85 / page.getViewport({ scale: 1 }).width, 2.0);
+    const viewport = page.getViewport({ scale });
+
+    const canvas = document.createElement('canvas');
+    canvas.className = 'page-canvas';
+    canvas.width = viewport.width;
+    canvas.height = viewport.height;
+    canvas.style.maxWidth = '100%';
+    canvas.id = 'page-' + index;
+    container.appendChild(canvas);
+
+    await page.render({ canvasContext: canvas.getContext('2d'), viewport }).promise;
+    renderedPages++;
+
+    if (renderedPages === pdfDoc.numPages) {
+      document.getElementById('loading').style.display = 'none';
+    }
+  }
+
+  // 스크롤 기반 현재 페이지 표시
+  function updateCurrentPage() {
+    const canvases = document.querySelectorAll('.page-canvas');
+    let current = 1;
+    canvases.forEach((c, i) => {
+      if (c.getBoundingClientRect().top < window.innerHeight * 0.5) current = i + 1;
+    });
+    document.getElementById('current-page').textContent = current;
+    document.getElementById('prev').disabled = current <= 1;
+    document.getElementById('next').disabled = current >= pdfDoc?.numPages;
+  }
+
+  // 페이지 이동
+  document.getElementById('prev').addEventListener('click', () => {
+    const cur = parseInt(document.getElementById('current-page').textContent);
+    if (cur > 1) document.getElementById('page-' + (cur - 1))?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+  document.getElementById('next').addEventListener('click', () => {
+    const cur = parseInt(document.getElementById('current-page').textContent);
+    if (pdfDoc && cur < pdfDoc.numPages) document.getElementById('page-' + (cur + 1))?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+  window.addEventListener('scroll', updateCurrentPage);
+
+  pdfjsLib.getDocument(url).promise.then(async pdf => {
+    pdfDoc = pdf;
+    document.getElementById('total-pages').textContent = pdf.numPages;
+    document.getElementById('controls').style.display = 'flex';
+
+    for (let i = 1; i <= pdf.numPages; i++) {
+      const page = await pdf.getPage(i);
+      await renderPage(page, i);
+    }
+  }).catch(err => {
+    document.getElementById('loading').innerHTML = '<span style="color:#f87171">PDF를 불러올 수 없습니다.</span>';
+    console.error(err);
+  });
+</script>
+</body>
+</html>

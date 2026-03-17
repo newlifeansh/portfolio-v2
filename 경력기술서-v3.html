@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>안석환 경력기술서 v3 | Product Owner</title>
+<style>
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Pretendard', -apple-system, 'Malgun Gothic', sans-serif;
+    font-size: 9pt;
+    color: #111;
+    background: #fff;
+    line-height: 1.5;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ── PAGE SETUP ── */
+  @page {
+    size: A4 landscape;
+    margin: 0;
+  }
+
+  .page {
+    width: 297mm;
+    height: 210mm;
+    margin: 0 auto;
+    padding: 10mm 14mm 8mm 14mm;
+    position: relative;
+    background: #fff;
+    page-break-after: always;
+    overflow: hidden;
+  }
+  .page:last-child { page-break-after: avoid; }
+
+  /* ── COLORS ── */
+  .blue { color: #2563EB; }
+  .accent-bg { background: #2563EB; color: #fff; }
+
+  /* ── PAGE HEADER (small, all pages except cover) ── */
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1.5px solid #2563EB;
+    padding-bottom: 5px;
+    margin-bottom: 12px;
+  }
+  .page-header-logo { font-weight: 900; font-size: 10pt; letter-spacing: -0.5px; }
+  .page-header-logo span { color: #2563EB; }
+  .page-header-right { font-size: 7pt; color: #999; }
+
+  /* ── SECTION LABELS ── */
+  .sec-label {
+    font-size: 6.5pt;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #2563EB;
+    margin-bottom: 4px;
+  }
+  .sec-title {
+    font-size: 13pt;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    margin-bottom: 4px;
+    color: #111;
+  }
+  .sec-desc {
+    font-size: 8pt;
+    color: #666;
+    margin-bottom: 10px;
+  }
+  .divider { border: none; border-top: 1px solid #eee; margin: 10px 0; }
+
+  /* ════════════════════════════
+     PAGE 1: COVER
+  ════════════════════════════ */
+  .cover { background: #fff; padding: 0; }
+
+  .cover-top {
+    background: linear-gradient(135deg, #1e3a8a 0%, #2563EB 60%, #3b82f6 100%);
+    color: #fff;
+    padding: 10mm 16mm 8mm 16mm;
+  }
+  .cover-badge {
+    display: inline-block;
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 20px;
+    padding: 3px 12px;
+    font-size: 7pt;
+    font-weight: 600;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+  }
+  .cover-name {
+    font-size: 28pt;
+    font-weight: 900;
+    letter-spacing: -1px;
+    line-height: 1.05;
+    margin-bottom: 6px;
+  }
+  .cover-role {
+    font-size: 12pt;
+    font-weight: 400;
+    opacity: 0.85;
+    margin-bottom: 16px;
+  }
+  .cover-desc {
+    font-size: 9pt;
+    opacity: 0.8;
+    line-height: 1.7;
+    max-width: 130mm;
+    margin-bottom: 20px;
+  }
+
+  .cover-stats {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .cover-stat {
+    text-align: center;
+  }
+  .cover-stat-val {
+    font-size: 18pt;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 3px;
+  }
+  .cover-stat-label {
+    font-size: 6.5pt;
+    opacity: 0.7;
+    white-space: nowrap;
+  }
+
+  .cover-bottom { padding: 6mm 14mm 8mm 14mm; }
+
+  .cover-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  .cover-info-box {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 12px 14px;
+  }
+  .cover-info-box h4 {
+    font-size: 7pt;
+    font-weight: 700;
+    color: #2563EB;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+  .cover-info-box p {
+    font-size: 8pt;
+    color: #444;
+    line-height: 1.8;
+  }
+  .cover-info-box a { color: #2563EB; }
+
+  .company-badges {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+  .company-badge {
+    padding: 4px 10px;
+    border-radius: 5px;
+    font-size: 7pt;
+    font-weight: 700;
+  }
+  .cb-kakao { background: rgba(255,205,0,0.18); color: #92680a; }
+  .cb-samsung { background: rgba(37,99,235,0.12); color: #1e40af; }
+  .cb-coupang { background: rgba(220,38,38,0.12); color: #b91c1c; }
+  .cb-lg { background: rgba(155,18,57,0.12); color: #9b1239; }
+
+  .cover-awards-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+  }
+  .cover-award-chip {
+    background: #f8faff;
+    border: 1px solid #dbeafe;
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-size: 7pt;
+    color: #374151;
+  }
+  .cover-award-chip strong { color: #2563EB; }
+
+  /* ════════════════════════════
+     PAGE 2: ABOUT
+  ════════════════════════════ */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 110mm 1fr;
+    gap: 16px;
+    margin-bottom: 10px;
+  }
+  .venn-wrap {
+    background: #f8faff;
+    border-radius: 12px;
+    padding: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .venn-svg-area {
+    position: relative;
+    width: 80mm;
+    height: 58mm;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .venn-circle-item {
+    position: absolute;
+    width: 48mm;
+    height: 36mm;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 7.5pt;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.3;
+  }
+  .vc-tech { background: rgba(37,99,235,0.12); color: #1e40af; top: 2mm; left: 2mm; }
+  .vc-biz  { background: rgba(16,185,129,0.12); color: #065f46; top: 2mm; right: 2mm; }
+  .vc-ux   { background: rgba(245,158,11,0.12); color: #92400e; bottom: 2mm; left: 50%; transform: translateX(-50%); }
+  .vc-center {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: #2563EB;
+    color: #fff;
+    border-radius: 50%;
+    width: 22mm;
+    height: 22mm;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 7pt;
+    font-weight: 800;
+    text-align: center;
+    line-height: 1.3;
+    box-shadow: 0 4px 14px rgba(37,99,235,0.35);
+  }
+
+  .strength-list { list-style: none; }
+  .strength-item {
+    display: flex;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .strength-item:last-child { border-bottom: none; }
+  .strength-num {
+    font-size: 14pt;
+    font-weight: 900;
+    color: #e5e7eb;
+    line-height: 1;
+    min-width: 18px;
+  }
+  .strength-item h3 { font-size: 8.5pt; font-weight: 700; margin-bottom: 2px; }
+  .strength-item p { font-size: 7.5pt; color: #666; line-height: 1.6; }
+
+  .career-quick {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-top: 4px;
+  }
+  .cq-card {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 10px 10px;
+  }
+  .cq-period { font-size: 6.5pt; color: #999; margin-bottom: 2px; }
+  .cq-company { font-size: 9pt; font-weight: 800; margin-bottom: 2px; }
+  .cq-role { font-size: 7pt; color: #555; line-height: 1.4; }
+  .dot-current {
+    display: inline-block;
+    width: 6px; height: 6px;
+    background: #2563EB;
+    border-radius: 50%;
+    margin-left: 4px;
+    vertical-align: middle;
+  }
+
+  /* ════════════════════════════
+     PAGE 3-4: CASE STUDIES
+  ════════════════════════════ */
+  .case-block {
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 9px 12px;
+    margin-bottom: 8px;
+  }
+  .case-block:last-child { margin-bottom: 0; }
+
+  .case-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+  }
+  .case-label-sm { font-size: 6.5pt; color: #2563EB; font-weight: 700; margin-bottom: 2px; }
+  .case-title { font-size: 11pt; font-weight: 900; margin-bottom: 2px; }
+  .case-subtitle-sm { font-size: 7.5pt; color: #666; }
+  .case-period-sm { font-size: 7pt; color: #999; }
+  .case-tags-wrap { display: flex; flex-wrap: wrap; gap: 4px; justify-content: flex-end; }
+  .case-tag {
+    background: #f0f4ff;
+    color: #2563EB;
+    font-size: 6pt;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 10px;
+  }
+
+  .step-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 8px;
+  }
+  .step-col {
+    background: #f8faff;
+    border-radius: 6px;
+    padding: 8px 9px;
+  }
+  .step-col-header {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 5px;
+  }
+  .step-dot {
+    width: 17px; height: 17px;
+    background: #2563EB;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 6pt;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-col-label { font-size: 7pt; font-weight: 700; color: #374151; }
+  .step-col-text { font-size: 7pt; color: #555; line-height: 1.55; }
+  .step-col ul { padding-left: 10px; }
+  .step-col li { font-size: 6.5pt; color: #555; line-height: 1.6; margin-bottom: 1px; }
+
+  .result-chips { display: flex; flex-wrap: wrap; gap: 3px; margin-top: 4px; }
+  .result-chip {
+    background: #ecfdf5;
+    color: #065f46;
+    border: 1px solid #a7f3d0;
+    font-size: 6.5pt;
+    font-weight: 600;
+    padding: 2px 7px;
+    border-radius: 10px;
+  }
+
+  /* ════════════════════════════
+     PAGE 5: ALL PROJECTS
+  ════════════════════════════ */
+  .proj-table { width: 100%; border-collapse: collapse; }
+  .proj-table thead th {
+    background: #f8faff;
+    font-size: 7pt;
+    font-weight: 700;
+    color: #555;
+    padding: 6px 8px;
+    border-bottom: 1.5px solid #dbeafe;
+    text-align: left;
+  }
+  .proj-table tbody tr { border-bottom: 1px solid #f0f0f0; }
+  .proj-table tbody tr:last-child { border-bottom: none; }
+  .proj-table td { padding: 7px 8px; vertical-align: top; font-size: 7.5pt; }
+  .proj-badge { font-size: 5.5pt; font-weight: 700; letter-spacing: 0.5px; padding: 2px 6px; border-radius: 3px; text-transform: uppercase; display: inline-block; }
+  .badge-kakao { background: rgba(255,205,0,0.18); color: #92680a; }
+  .badge-samsung { background: rgba(37,99,235,0.12); color: #1e40af; }
+  .badge-coupang { background: rgba(220,38,38,0.12); color: #b91c1c; }
+  .badge-lg { background: rgba(155,18,57,0.12); color: #9b1239; }
+  .proj-name { font-weight: 700; font-size: 8pt; margin-bottom: 1px; }
+  .proj-desc-sm { font-size: 7pt; color: #666; line-height: 1.5; }
+  .proj-kpi-sm { font-size: 7pt; color: #444; line-height: 1.7; }
+  .proj-kpi-sm strong { color: #2563EB; font-weight: 700; }
+
+  /* ════════════════════════════
+     PAGE 6: CAREER + AWARDS + PATENTS
+  ════════════════════════════ */
+  .career-table { width: 100%; }
+  .career-row {
+    display: grid;
+    grid-template-columns: 36mm 1fr;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .career-row:last-child { border-bottom: none; }
+  .career-period { font-size: 7pt; color: #999; font-weight: 600; padding-top: 2px; }
+  .career-company { font-size: 11pt; font-weight: 900; margin-bottom: 2px; }
+  .career-role-sm { font-size: 7.5pt; color: #555; margin-bottom: 4px; }
+  .career-highlights { display: flex; flex-wrap: wrap; gap: 3px; }
+  .career-hl-chip {
+    background: #f5f5f5;
+    border-radius: 4px;
+    padding: 2px 7px;
+    font-size: 6.5pt;
+    color: #555;
+  }
+  .career-desc-sm { font-size: 7pt; color: #777; line-height: 1.6; margin-bottom: 4px; }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 4px; }
+
+  .award-mini {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 7px 0;
+    border-bottom: 1px solid #f5f5f5;
+  }
+  .award-mini:last-child { border-bottom: none; }
+  .award-year-badge {
+    background: #eff6ff;
+    color: #2563EB;
+    font-size: 6.5pt;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+  .award-mini h4 { font-size: 8pt; font-weight: 700; margin-bottom: 1px; }
+  .award-mini p { font-size: 7pt; color: #888; }
+
+  .patent-mini {
+    padding: 7px 0;
+    border-bottom: 1px solid #f5f5f5;
+  }
+  .patent-mini:last-child { border-bottom: none; }
+  .patent-num-badge {
+    font-size: 6pt;
+    font-weight: 700;
+    color: #2563EB;
+    background: #eff6ff;
+    padding: 1px 6px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-bottom: 3px;
+  }
+  .patent-mini h4 { font-size: 8pt; font-weight: 700; margin-bottom: 2px; }
+  .patent-mini p { font-size: 7pt; color: #777; line-height: 1.5; }
+
+  .comp-grid-mini {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-top: 8px;
+  }
+  .comp-mini {
+    background: #111;
+    border-radius: 8px;
+    padding: 10px;
+    color: #fff;
+  }
+  .comp-mini-icon {
+    width: 26px; height: 26px;
+    background: #2563EB;
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 6px;
+  }
+  .comp-mini-icon svg { width: 14px; height: 14px; fill: #fff; }
+  .comp-mini h4 { font-size: 7.5pt; font-weight: 700; margin-bottom: 4px; }
+  .comp-mini p { font-size: 6.5pt; color: #aaa; line-height: 1.5; }
+
+  @media print {
+    body { background: #fff; }
+    .page { margin: 0; padding: 10mm 14mm 8mm 14mm; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════
+     PAGE 1: COVER
+════════════════════════ -->
+<div class="page cover" style="padding:0;">
+  <!-- TOP: Dark blue gradient header -->
+  <div class="cover-top">
+    <div class="cover-badge">Product Owner · 13년 경력</div>
+    <div class="cover-name">안 석 환</div>
+    <div class="cover-role">Product Owner — AI · Fintech · Platform</div>
+    <div class="cover-desc">
+      데이터로 문제를 정의하고, AI로 답을 만듭니다.<br>
+      LG U+ · 삼성전자 · 쿠팡 · 카카오뱅크, 13년간<br>
+      사용자 경험과 비즈니스 성과를 함께 설계해왔습니다.
+    </div>
+    <div class="cover-stats">
+      <div class="cover-stat">
+        <div class="cover-stat-val">13년</div>
+        <div class="cover-stat-label">Product Experience</div>
+      </div>
+      <div class="cover-stat">
+        <div class="cover-stat-val">2,503만</div>
+        <div class="cover-stat-label">MAU Peak</div>
+      </div>
+      <div class="cover-stat">
+        <div class="cover-stat-val">100만</div>
+        <div class="cover-stat-label">3일 달성 (AI퀴즈)</div>
+      </div>
+      <div class="cover-stat">
+        <div class="cover-stat-val">6회</div>
+        <div class="cover-stat-label">수상</div>
+      </div>
+      <div class="cover-stat">
+        <div class="cover-stat-val">4종</div>
+        <div class="cover-stat-label">기술 특허</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTTOM: Info -->
+  <div class="cover-bottom">
+    <div class="cover-info-grid">
+      <div class="cover-info-box">
+        <h4>Contact</h4>
+        <p>
+          📧 newlife.ansh@gmail.com<br>
+          📱 010-5784-0715<br>
+          🌐 newlifeansh.github.io/portfolio-v2<br>
+          💼 linkedin.com/in/connor-sh
+        </p>
+      </div>
+      <div class="cover-info-box">
+        <h4>Education</h4>
+        <p>
+          🎓 한국과학기술원(KAIST)<br>
+          &nbsp;&nbsp;&nbsp;정보경영시스템 석사 (3.83/4.3)<br>
+          🎓 건국대학교 정보통신 전자공학<br>
+          &nbsp;&nbsp;&nbsp;(3.95/4.5)
+        </p>
+      </div>
+    </div>
+
+    <div class="cover-info-box" style="margin-bottom:14px;">
+      <h4>Career</h4>
+      <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:6px;">
+        <div class="company-badge cb-kakao">카카오뱅크 · 2023.05—현재 · 매니저</div>
+        <div class="company-badge cb-samsung">삼성전자 · 2021.09—2023.04 · 프로</div>
+        <div class="company-badge cb-coupang">쿠팡 · 2021.03—2021.08 · Sr.Manager</div>
+        <div class="company-badge cb-lg">LG U+ · 2013.01—2021.03 · Team Lead</div>
+      </div>
+    </div>
+
+    <div class="cover-info-box">
+      <h4>Awards &amp; Recognition</h4>
+      <div class="cover-awards-row">
+        <div class="cover-award-chip"><strong>2025</strong> 카카오뱅크 올해의 인재상</div>
+        <div class="cover-award-chip"><strong>2022</strong> 삼성전자 서비스 혁신상</div>
+        <div class="cover-award-chip"><strong>2021</strong> SEC Innovation 대상</div>
+        <div class="cover-award-chip"><strong>2019</strong> LG 전사 Award</div>
+        <div class="cover-award-chip"><strong>2017</strong> LG 전사 Award</div>
+        <div class="cover-award-chip"><strong>2016</strong> LG 전사 Award</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════
+     PAGE 2: ABOUT + CAREER
+════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-header-logo">ASH<span>.</span> 안석환 경력기술서 v3</div>
+    <div class="page-header-right">About · Career</div>
+  </div>
+
+  <!-- 2-column landscape layout -->
+  <div style="display:grid; grid-template-columns: 42% 58%; gap: 16px; height: calc(100% - 30px);">
+
+    <!-- LEFT: About -->
+    <div>
+      <div class="sec-label">About</div>
+      <div class="sec-title" style="font-size:13pt; margin-bottom:4px;">기획자 안석환입니다</div>
+      <div class="sec-desc" style="margin-bottom:10px;">기술과 비즈니스, 사용자 경험의 교차점에서 성장을 설계합니다.</div>
+
+      <!-- Skills badges -->
+      <div style="background:#f8faff; border-radius:10px; padding:10px 12px; margin-bottom:10px;">
+        <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:8px;">
+          <div style="background:rgba(37,99,235,0.1);border-radius:6px;padding:5px 10px;color:#1e40af;font-size:7.5pt;font-weight:700;">기술 이해</div>
+          <div style="background:rgba(16,185,129,0.1);border-radius:6px;padding:5px 10px;color:#065f46;font-size:7.5pt;font-weight:700;">비즈니스 설계</div>
+          <div style="background:rgba(245,158,11,0.1);border-radius:6px;padding:5px 10px;color:#92400e;font-size:7.5pt;font-weight:700;">UX 기획</div>
+        </div>
+        <div style="background:#2563EB;color:#fff;border-radius:8px;padding:8px 14px;font-size:8.5pt;font-weight:800;display:inline-block;box-shadow:0 3px 10px rgba(37,99,235,0.3);">
+          Product Owner &nbsp;<span style="font-size:7pt;font-weight:400;opacity:0.85;">세 영역의 교차점</span>
+        </div>
+        <div style="margin-top:8px;font-size:7pt;color:#555;line-height:1.7;">
+          전자공학 전공 → 개발자 → 기획자. 카이스트 정보경영시스템 석사.<br>
+          SQL · 데이터분석 · AI 활용 Full-cycle 기획.
+        </div>
+      </div>
+
+      <!-- Strengths compact -->
+      <ul class="strength-list">
+        <li class="strength-item" style="padding:6px 0;">
+          <span class="strength-num" style="font-size:11pt;">01</span>
+          <div><h3 style="font-size:8pt;">데이터 기반 의사결정</h3><p style="font-size:7pt;">SQL 활용 KPI 지표 분석, 고객 퍼널 분석, 비용·매출 관리까지 분석 전 과정을 직접 수행합니다.</p></div>
+        </li>
+        <li class="strength-item" style="padding:6px 0;">
+          <span class="strength-num" style="font-size:11pt;">02</span>
+          <div><h3 style="font-size:8pt;">AI 활용 제품 설계</h3><p style="font-size:7pt;">GPT 벡터 모델·Claude Code 기반 AI 서비스를 직접 기획·운영. 운영 공수 90% 절감 경험.</p></div>
+        </li>
+        <li class="strength-item" style="padding:6px 0;">
+          <span class="strength-num" style="font-size:11pt;">03</span>
+          <div><h3 style="font-size:8pt;">수익화 구조 설계</h3><p style="font-size:7pt;">게이미피케이션 · 광고 · 금융상품 수익화까지 AARRR 전 구간을 직접 설계하고 수치로 증명합니다.</p></div>
+        </li>
+        <li class="strength-item" style="padding:6px 0; border-bottom:none;">
+          <span class="strength-num" style="font-size:11pt;">04</span>
+          <div><h3 style="font-size:8pt;">빠른 도메인 적응</h3><p style="font-size:7pt;">IoT · AI · 핀테크 · 글로벌 커머스까지, 새 도메인에서 0→1을 반복하며 성과를 만들어왔습니다.</p></div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- RIGHT: Career -->
+    <div style="border-left: 1.5px solid #eee; padding-left: 16px;">
+      <div class="sec-label">Career Timeline</div>
+      <div class="sec-title" style="font-size:13pt; margin-bottom:8px;">경력 요약</div>
+
+      <div style="display:grid; grid-template-columns: 28mm 1fr; gap:8px; padding:8px 0; border-bottom:1px solid #f0f0f0;">
+        <div class="career-period" style="font-size:7pt; padding-top:2px;">2023.05 — 현재 <span class="dot-current"></span></div>
+        <div>
+          <div class="career-company" style="color:#b28a00; font-size:10pt;">KakaoBank</div>
+          <div class="career-role-sm" style="font-size:7pt;">매니저 — 투자 및 비이자 수익 서비스 기획 (Product Owner)</div>
+          <div class="career-desc-sm" style="font-size:6.5pt;">AI 키워드퀴즈(3일 100만), 돈 버는 재미(WAU 120만, 월 1억), 공모주 서비스(100만 가입자), 금융상품 내재화(WAU 5.2배) 등 비이자 수익화 전 구간 기획·운영.</div>
+          <div class="career-highlights"><span class="career-hl-chip">AI 서비스 기획</span><span class="career-hl-chip">게이미피케이션</span><span class="career-hl-chip">광고 수익화</span><span class="career-hl-chip">투자 플랫폼</span><span class="career-hl-chip">SQL 분석</span></div>
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns: 28mm 1fr; gap:8px; padding:8px 0; border-bottom:1px solid #f0f0f0;">
+        <div class="career-period" style="font-size:7pt; padding-top:2px;">2021.09 — 2023.04</div>
+        <div>
+          <div class="career-company" style="color:#1e40af; font-size:10pt;">Samsung Electronics</div>
+          <div class="career-role-sm" style="font-size:7pt;">프로 — SmartThings 쿠킹 / 헬스 서비스 기획 PM</div>
+          <div class="career-desc-sm" style="font-size:6.5pt;">빅스비 비전 스마트쿠킹(MAU 2배), AI 칼로리 식단 추천(북미 $500k), 쿠킹 커뮤니티(MAU 180%), Samsung Food IFA 글로벌 런칭.</div>
+          <div class="career-highlights"><span class="career-hl-chip">AI Vision</span><span class="career-hl-chip">글로벌 서비스</span><span class="career-hl-chip">제휴 연동</span><span class="career-hl-chip">커뮤니티</span></div>
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns: 28mm 1fr; gap:8px; padding:8px 0; border-bottom:1px solid #f0f0f0;">
+        <div class="career-period" style="font-size:7pt; padding-top:2px;">2021.03 — 2021.08</div>
+        <div>
+          <div class="career-company" style="color:#b91c1c; font-size:10pt;">Coupang</div>
+          <div class="career-role-sm" style="font-size:7pt;">Sr.Manager — 채용 기획 앱/웹 (Tech Recruiter)</div>
+          <div class="career-desc-sm" style="font-size:6.5pt;">채용 사이트 간소화 개편. 후보자 진입율 320%·채용율 200% 증가. Tech 기술 로드맵 기반 인재 채용 방향성 수립.</div>
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns: 28mm 1fr; gap:8px; padding:8px 0;">
+        <div class="career-period" style="font-size:7pt; padding-top:2px;">2013.01 — 2021.03</div>
+        <div>
+          <div class="career-company" style="color:#9b1239; font-size:10pt;">LG U+</div>
+          <div class="career-role-sm" style="font-size:7pt;">Team Lead Manager — IoT · 5G Media · Smart Home (Product Owner)</div>
+          <div class="career-desc-sm" style="font-size:6.5pt;">5G 게임방송(GenZ 경쟁사 대비 2.3배), 스마트홈 CCTV(102만), 키즈 위치알리미(35만), eSIM 원격개통(국내 최초), 전사 KPI ERRC TF 5년 320억 절감, 특허 4종.</div>
+          <div class="career-highlights"><span class="career-hl-chip">IoT</span><span class="career-hl-chip">5G 서비스</span><span class="career-hl-chip">eSIM</span><span class="career-hl-chip">AI 하이라이트</span><span class="career-hl-chip">KPI 관리</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ════════════════════════
+     PAGE 3: CASE STUDIES 1-2
+════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-header-logo">ASH<span>.</span> 안석환 경력기술서 v3</div>
+    <div class="page-header-right">Case Studies 01–02</div>
+  </div>
+
+  <div class="sec-label">Case Studies</div>
+  <div class="sec-title">대표 프로젝트</div>
+  <div class="sec-desc">가장 큰 임팩트를 만들어낸 프로젝트. 문제 정의부터 성과까지.</div>
+
+  <!-- CASE 1 -->
+  <div class="case-block">
+    <div class="case-top">
+      <div>
+        <div class="case-label-sm">KakaoBank · Growth · 2025.09 — 현재</div>
+        <div class="case-title">AI 키워드퀴즈</div>
+        <div class="case-subtitle-sm">GPT 벡터 유사도 모델 기반 금융 퀴즈 자동생성 서비스</div>
+      </div>
+      <div class="case-tags-wrap">
+        <span class="case-tag">AI / LLM</span>
+        <span class="case-tag">게이미피케이션</span>
+        <span class="case-tag">리텐션</span>
+        <span class="case-tag">수익화</span>
+      </div>
+    </div>
+    <div class="step-grid">
+      <div class="step-col">
+        <div class="step-col-header"><div class="step-dot">P</div><div class="step-col-label">문제 정의</div></div>
+        <div class="step-col-text">투자 서비스의 낮은 일 방문율과 단순 정보 제공 방식의 한계. 고객이 서비스에 머무를 이유가 부족해 체류시간과 재방문율이 낮은 상태.</div>
+      </div>
+      <div class="step-col">
+        <div class="step-col-header"><div class="step-dot">A</div><div class="step-col-label">분석 및 가설</div></div>
+        <div class="step-col-text">금융 정보 학습 니즈와 게이미피케이션 결합 가설 수립. 퀴즈 형식이 반복 참여를 유도하고 리텐션을 동시에 끌어올릴 수 있음을 검증.</div>
+      </div>
+      <div class="step-col">
+        <div class="step-col-header"><div class="step-dot">S</div><div class="step-col-label">해결 방식</div></div>
+        <ul>
+          <li>GPT 벡터 유사도 모델로 금융 키워드 퀴즈 자동 생성 AI 파이프라인 설계</li>
+          <li>Claude Code 기반 퀴즈 생성기로 매일 신규 퀴즈 무인 운영 체계</li>
+          <li>AdFit 광고 연동 수익화 흐름 설계</li>
+          <li>스트릭·리워드 구조로 재방문 동기 설계</li>
+        </ul>
+      </div>
+      <div class="step-col">
+        <div class="step-col-header"><div class="step-dot">R</div><div class="step-col-label">성과</div></div>
+        <div class="result-chips">
+          <span class="result-chip">출시 3일 100만 참여</span>
+          <span class="result-chip">D+1 리텐션 70.1%</span>
+          <span class="result-chip">월 수익 1억 원</span>
+          <span class="result-chip">운영공수 90% 절감</span>
+          <span class="result-chip">세션 3.1분</span>
+          <span class="result-chip">D+7 이탈 3~4%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASE 2 -->
+  <div class="case-block">
+    <div class="case-top">
+      <div>
+        <div class="case-label-sm">KakaoBank · Monetization · 2024.11 — 2025.12</div>
+        <div class="case-title">돈 버는 재미 서비스</div>
+        <div class="case-subtitle-sm">게이미피케이션 기반 비이자 광고 수익 구조 설계</div>
+      </div>
+      <div class="case-tags-wrap">
+        <span class="case-tag">게이미피케이션</span>
+        <span class="case-tag">광고 수익화</span>
+        <span class="case-tag">리텐션</span>
+      </div>
+    </div>
+    <div class="step-grid">
+      <div class="step-col">
+        <div class="step-col-header"><div class="step-dot">P</div><div class="step-col-label">문제 정의</div></div>
+        <div class="step-col-text">이자 수익 의존 구조에서 벗어나 고객 리텐션과 광고 수익을 동시에 달성할 지속 가능한 비이자 수익 서비스 필요.</div>
+      </div>
+      <div class="step-col">
+        <div class="step-col-header"><div class="step-dot">A</div><div class="step-col-label">분석 및 가설</div></div>
+        <div class="step-col-text">WAU·리텐션 데이터 분석으로 금융 앱에서 '재미' 요소가 재방문 트리거임을 확인. 제휴형 광고가 UX를 해치지 않는 수익화 가능 구조로 검증.</div>
+      </div>
+      <div class="step-col">
+        <div class="step-col-header"><div class="step-dot">S</div><div class="step-col-label">해결 방식</div></div>
+        <ul>
+          <li>미션·출석·보상 기반 게이미피케이션 구조 설계</li>
+          <li>제휴 광고 모델 연동 수익 흐름 구축</li>
+          <li>세그먼트별 맞춤 미션 A/B 테스트</li>
+          <li>제휴사 확장 구조 설계</li>
+        </ul>
+      </div>
+      <div class="step-col">
+        <div class="step-col-header"><div class="step-dot">R</div><div class="step-col-label">성과</div></div>
+        <div class="result-chips">
+          <span class="result-chip">WAU 120만</span>
+          <span class="result-chip">월 매출 1억 원</span>
+          <span class="result-chip">광고수익 4.7배↑</span>
+          <span class="result-chip">트래픽 4.7배↑</span>
+          <span class="result-chip">비이자 수익 13억</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════
+     PAGE 4: CASE STUDIES 3-4
+════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-header-logo">ASH<span>.</span> 안석환 경력기술서 v3</div>
+    <div class="page-header-right">Case Studies 03–04</div>
+  </div>
+
+  <!-- CASE 3 -->
+  <div class="case-block">
+    <div class="case-top">
+      <div>
+        <div class="case-label-sm">Samsung Electronics · Global · 2022.08 — 2023.03</div>
+        <div class="case-title">빅스비 비전 스마트 쿠킹</div>
+        <div class="case-subtitle-sm">SmartThings AI 비전 탑재 글로벌 요리 플랫폼 기획</div>
+      </div>
+      <div class="case-tags-wrap">
+        <span class="case-tag">AI Vision</span>
+        <span class="case-tag">글로벌</span>
+        <span class="case-tag">커뮤니티</span>
+        <span class="case-tag">파트너십</span>
+      </div>
+    </div>
+    <div class="step-grid">
+      <div class="step-col">
+        <div class="step-col-header"><div class="step-dot">P</div><div class="step-col-label">문제 정의</div></div>
+        <div class="step-col-text">SmartThings 쿠킹 서비스의 낮은 기기 연동률과 재방문율. 단순 레시피를 넘어서 기기와의 연동 경험 활성화 및 글로벌 MAU 확장 과제.</div>
+      </div>
+      <div class="step-col">
+        <div class="step-col-header"><div class="step-dot">A</div><div class="step-col-label">분석 및 가설</div></div>
+        <div class="step-col-text">글로벌 요리 커뮤니티 트렌드 분석. 와인·식재료 스캔이 진입장벽을 낮추고, 커뮤니티가 재방문 핵심 레버임을 확인.</div>
+      </div>
+      <div class="step-col">
+        <div class="step-col-header"><div class="step-dot">S</div><div class="step-col-label">해결 방식</div></div>
+        <ul>
+          <li>빅스비 비전 AI 와인 라벨 스캔·가상 셀러·식재료 인식 기획</li>
+          <li>Vivino 글로벌 파트너십 + 아마존 리테일 커머스 연결</li>
+          <li>SmartThings 쿠킹 커뮤니티 런칭, 레시피 원격 전송</li>
+          <li>IFA 2023 Samsung Food 브랜드 확장</li>
+        </ul>
+      </div>
+      <div class="step-col">
+        <div class="step-col-header"><div class="step-dot">R</div><div class="step-col-label">성과</div></div>
+        <div class="result-chips">
+          <span class="result-chip">DAU 323만→694만(2.1배)</span>
+          <span class="result-chip">MAU 1,252만→2,503만</span>
+          <span class="result-chip">기기연동 223%↑</span>
+          <span class="result-chip">체류시간 192%↑</span>
+          <span class="result-chip">와인기기 매출 3배</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASE 4 -->
+  <div class="case-block">
+    <div class="case-top">
+      <div>
+        <div class="case-label-sm">Samsung Electronics · Health &amp; Community · 2022.06 — 2023.03</div>
+        <div class="case-title">Samsung Health 칼로리 기반 레시피 추천 + 커뮤니티</div>
+        <div class="case-subtitle-sm">건강 데이터 연동 AI 식단 추천 및 기기 기반 커뮤니티 서비스 기획</div>
+      </div>
+      <div class="case-tags-wrap">
+        <span class="case-tag">AI 추천</span>
+        <span class="case-tag">Samsung Health</span>
+        <span class="case-tag">글로벌 커머스</span>
+      </div>
+    </div>
+    <div class="step-grid">
+      <div class="step-col">
+        <div class="step-col-header"><div class="step-dot">P</div><div class="step-col-label">문제 정의</div></div>
+        <div class="step-col-text">Samsung Health 건강 데이터가 쿠킹 서비스와 단절돼 활용도 낮음. 커뮤니티 없이 단방향 정보 제공으로 재방문·체류시간 저조.</div>
+      </div>
+      <div class="step-col">
+        <div class="step-col-header"><div class="step-dot">A</div><div class="step-col-label">분석 및 가설</div></div>
+        <div class="step-col-text">칼로리·활동 데이터 연동 개인화 식단 추천 + UGC 커뮤니티가 MAU·기기 연동률을 동시에 올릴 수 있다는 가설 수립 및 검증.</div>
+      </div>
+      <div class="step-col">
+        <div class="step-col-header"><div class="step-dot">S</div><div class="step-col-label">해결 방식</div></div>
+        <ul>
+          <li>Samsung Health AI 건강 데이터 기반 맞춤 레시피 자동 추천 기획</li>
+          <li>쿠킹 커뮤니티 글로벌 런칭(북미·한국)</li>
+          <li>Walmart·Amazon 장바구니 커머스 연동</li>
+          <li>AI 레시피 자동화 에이전트 도입</li>
+        </ul>
+      </div>
+      <div class="step-col">
+        <div class="step-col-header"><div class="step-dot">R</div><div class="step-col-label">성과</div></div>
+        <div class="result-chips">
+          <span class="result-chip">MAU 180%↑</span>
+          <span class="result-chip">기기연동 223%↑</span>
+          <span class="result-chip">구매전환 35%↑</span>
+          <span class="result-chip">출시 1달 $500k↑</span>
+          <span class="result-chip">리테일 매출 15%↑</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" style="margin-top:12px;">
+
+  <!-- Competencies mini -->
+  <div class="sec-label" style="margin-top:10px;">Competencies</div>
+  <div class="sec-title">핵심 역량</div>
+  <div class="comp-grid-mini">
+    <div class="comp-mini">
+      <div class="comp-mini-icon">
+        <svg viewBox="0 0 24 24"><path d="M9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4zm2 2H5V5h14v14zm0-16H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/></svg>
+      </div>
+      <h4>데이터 기반 Growth</h4>
+      <p>SQL 퍼널 분석, KPI 설계, A/B 테스트. AARRR 전 구간 직접 측정.</p>
+    </div>
+    <div class="comp-mini">
+      <div class="comp-mini-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2a2 2 0 012 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 017 7h1v2h-1v1a2 2 0 01-2 2H5a2 2 0 01-2-2v-1H2v-2h1a7 7 0 017-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 012-2M9 11a5 5 0 00-5 5v1h16v-1a5 5 0 00-5-5H9z"/></svg>
+      </div>
+      <h4>AI 제품 기획</h4>
+      <p>LLM·GPT·Claude Code 기반 AI 서비스 기획·운영. 기술을 제품으로 연결.</p>
+    </div>
+    <div class="comp-mini">
+      <div class="comp-mini-icon">
+        <svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+      </div>
+      <h4>수익화 설계</h4>
+      <p>게이미피케이션·광고·금융상품 수익 구조. 월 총수익 1억 원 사례 보유.</p>
+    </div>
+    <div class="comp-mini">
+      <div class="comp-mini-icon">
+        <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+      </div>
+      <h4>이해관계자 조율</h4>
+      <p>개발·디자인·데이터·제휴사·경영진까지 다양한 요구사항 조율 및 제품 구현.</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════
+     PAGE 5: ALL PROJECTS
+════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-header-logo">ASH<span>.</span> 안석환 경력기술서 v3</div>
+    <div class="page-header-right">All Projects</div>
+  </div>
+
+  <div class="sec-label">All Projects</div>
+  <div class="sec-title">전체 프로젝트</div>
+  <div class="sec-desc">13년간 수행한 주요 프로젝트 성과 요약.</div>
+
+  <table class="proj-table">
+    <thead>
+      <tr>
+        <th style="width:60px;">회사</th>
+        <th style="width:80px;">기간</th>
+        <th>프로젝트</th>
+        <th style="width:110px;">주요 성과</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="proj-badge badge-kakao">카카오뱅크</span></td>
+        <td><span style="font-size:6.5pt;color:#999;">2025.09—현재</span></td>
+        <td><div class="proj-name">AI 키워드퀴즈</div><div class="proj-desc-sm">GPT 벡터 유사도 모델 활용 금융 퀴즈 자동생성. Claude Code 기반 무인 운영.</div></td>
+        <td class="proj-kpi-sm"><div>3일 <strong>100만 참여</strong></div><div>D+1 리텐션 <strong>70.1%</strong></div><div>월 수익 <strong>1억 원</strong></div></td>
+      </tr>
+      <tr>
+        <td><span class="proj-badge badge-kakao">카카오뱅크</span></td>
+        <td><span style="font-size:6.5pt;color:#999;">2024.11—2025.12</span></td>
+        <td><div class="proj-name">돈 버는 재미 서비스</div><div class="proj-desc-sm">게이미피케이션 기반 제휴 광고 수익화. 고객 리텐션·비이자 수익 동시 달성.</div></td>
+        <td class="proj-kpi-sm"><div>WAU <strong>120만</strong></div><div>광고수익 <strong>4.7배↑</strong></div></td>
+      </tr>
+      <tr>
+        <td><span class="proj-badge badge-kakao">카카오뱅크</span></td>
+        <td><span style="font-size:6.5pt;color:#999;">2024.03—현재</span></td>
+        <td><div class="proj-name">공모주 청약 서비스</div><div class="proj-desc-sm">800만 증권계좌 고객 대상 투자 정보 서비스. IR 큐더스 데이터 연동.</div></td>
+        <td class="proj-kpi-sm"><div>3달 <strong>100만 가입</strong></div><div>계좌개설 <strong>2.3배↑</strong></div></td>
+      </tr>
+      <tr>
+        <td><span class="proj-badge badge-kakao">카카오뱅크</span></td>
+        <td><span style="font-size:6.5pt;color:#999;">2023.06—2024.10</span></td>
+        <td><div class="proj-name">채권/발행어음 금융상품 내재화</div><div class="proj-desc-sm">제휴 서비스 자체 내재화. 고객 퍼널 분석 기반 UX 개선.</div></td>
+        <td class="proj-kpi-sm"><div>WAU <strong>5.2배↑</strong></div><div>계좌개설 <strong>45%↑</strong></div></td>
+      </tr>
+      <tr>
+        <td><span class="proj-badge badge-kakao">카카오뱅크</span></td>
+        <td><span style="font-size:6.5pt;color:#999;">2024.07—2024.11</span></td>
+        <td><div class="proj-name">증권사 IRP 비교 서비스</div><div class="proj-desc-sm">실명확인 부수업무 활용. 간편 개설 + 증권사 혜택 비교.</div></td>
+        <td class="proj-kpi-sm"><div>계좌개설 <strong>10%↑</strong></div><div>광고수익 조기 달성</div></td>
+      </tr>
+      <tr>
+        <td><span class="proj-badge badge-samsung">삼성전자</span></td>
+        <td><span style="font-size:6.5pt;color:#999;">2022.08—2023.03</span></td>
+        <td><div class="proj-name">빅스비 비전 스마트 쿠킹</div><div class="proj-desc-sm">AI 비전 탑재 글로벌 요리 플랫폼. Vivino 파트너십, 아마존 리테일 연동.</div></td>
+        <td class="proj-kpi-sm"><div>MAU <strong>2,503만</strong></div><div>와인기기 매출 <strong>3배</strong></div></td>
+      </tr>
+      <tr>
+        <td><span class="proj-badge badge-samsung">삼성전자</span></td>
+        <td><span style="font-size:6.5pt;color:#999;">2022.05—2022.12</span></td>
+        <td><div class="proj-name">Samsung Health AI 칼로리 식단 추천</div><div class="proj-desc-sm">건강 데이터 연동 AI 맞춤 식단. Walmart·Amazon 커머스 연결.</div></td>
+        <td class="proj-kpi-sm"><div>구매전환 <strong>35%↑</strong></div><div>출시 1달 <strong>$500k↑</strong></div></td>
+      </tr>
+      <tr>
+        <td><span class="proj-badge badge-samsung">삼성전자</span></td>
+        <td><span style="font-size:6.5pt;color:#999;">2021.10—2022.04</span></td>
+        <td><div class="proj-name">SmartThings 쿠킹 커뮤니티</div><div class="proj-desc-sm">글로벌 UGC 커뮤니티. 기기 연동 원터치 레시피 실행.</div></td>
+        <td class="proj-kpi-sm"><div>MAU <strong>180%↑</strong></div><div>기기연동 <strong>223%↑</strong></div></td>
+      </tr>
+      <tr>
+        <td><span class="proj-badge badge-coupang">쿠팡</span></td>
+        <td><span style="font-size:6.5pt;color:#999;">2021.03—2021.08</span></td>
+        <td><div class="proj-name">채용 사이트 서비스 개편</div><div class="proj-desc-sm">채용 사이트 간소화 개편 및 신규 채널 개설.</div></td>
+        <td class="proj-kpi-sm"><div>진입율 <strong>320%↑</strong></div><div>채용율 <strong>200%↑</strong></div></td>
+      </tr>
+      <tr>
+        <td><span class="proj-badge badge-lg">LG U+</span></td>
+        <td><span style="font-size:6.5pt;color:#999;">2020.07—2021.03</span></td>
+        <td><div class="proj-name">5G 게임방송/클라우드게임 구독</div><div class="proj-desc-sm">5G 킬러 서비스. AI 하이라이트 영상. 게임사 10개 제휴.</div></td>
+        <td class="proj-kpi-sm"><div>GenZ 경쟁사比 <strong>2.3배</strong></div><div>광고수익 <strong>월 1억</strong></div></td>
+      </tr>
+      <tr>
+        <td><span class="proj-badge badge-lg">LG U+</span></td>
+        <td><span style="font-size:6.5pt;color:#999;">2018.05—2020.03</span></td>
+        <td><div class="proj-name">스마트홈 IoT 서비스 / 홈 CCTV</div><div class="proj-desc-sm">홈 CCTV 앱 개선. U+ID 최초 간편인증 방식 도입.</div></td>
+        <td class="proj-kpi-sm"><div>CCTV <strong>102만 가입</strong></div><div>VoC <strong>34%→80%</strong></div></td>
+      </tr>
+      <tr>
+        <td><span class="proj-badge badge-lg">LG U+</span></td>
+        <td><span style="font-size:6.5pt;color:#999;">2016—2018</span></td>
+        <td><div class="proj-name">키즈 위치알리미 / 스마트 블랙박스</div><div class="proj-desc-sm">LTE 기반 이동형 위치 알리미 디바이스·앱 기획. 퀵/택배로 확장.</div></td>
+        <td class="proj-kpi-sm"><div>가입자 <strong>35만</strong> (1년)</div><div>팅크웨어 판매 <strong>2위</strong></div></td>
+      </tr>
+      <tr>
+        <td><span class="proj-badge badge-lg">LG U+</span></td>
+        <td><span style="font-size:6.5pt;color:#999;">2013—2015</span></td>
+        <td><div class="proj-name">구글·LG전자 협업 스마트워치 / eSIM</div><div class="proj-desc-sm">듀얼넘버 서비스 기획. 국내 최초 eSIM 원격개통 단독 입찰.</div></td>
+        <td class="proj-kpi-sm"><div>워치 <strong>50만 가입</strong></div><div>동종제품 <strong>1위</strong></div></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<!-- ════════════════════════
+     PAGE 6: AWARDS + PATENTS + CONTACT
+════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-header-logo">ASH<span>.</span> 안석환 경력기술서 v3</div>
+    <div class="page-header-right">Awards · Patents · Contact</div>
+  </div>
+
+  <div class="two-col">
+    <!-- Awards -->
+    <div>
+      <div class="sec-label">Recognition</div>
+      <div class="sec-title">수상 내역</div>
+      <div>
+        <div class="award-mini">
+          <span class="award-year-badge">2025</span>
+          <div><h4>카카오뱅크 올해의 인재상</h4><p>돈 버는 재미·AI 퀴즈 서비스 혁신 성과</p></div>
+        </div>
+        <div class="award-mini">
+          <span class="award-year-badge">2022</span>
+          <div><h4>삼성전자 서비스 혁신상</h4><p>SmartThings 스마트 쿠킹 서비스 기획</p></div>
+        </div>
+        <div class="award-mini">
+          <span class="award-year-badge">2021</span>
+          <div><h4>SEC Innovation 대상</h4><p>삼성전자 사내 혁신 부문 대상</p></div>
+        </div>
+        <div class="award-mini">
+          <span class="award-year-badge">2019</span>
+          <div><h4>LG 전사 Award</h4><p>비용 효율화 TF 성과 인정</p></div>
+        </div>
+        <div class="award-mini">
+          <span class="award-year-badge">2017</span>
+          <div><h4>LG 전사 Award</h4><p>스마트홈 IoT 서비스 성과</p></div>
+        </div>
+        <div class="award-mini">
+          <span class="award-year-badge">2016</span>
+          <div><h4>LG 전사 Award</h4><p>기아차 텔레매틱스 단독 입찰 성공</p></div>
+        </div>
+      </div>
+
+      <hr class="divider" style="margin-top:14px;">
+
+      <div class="sec-label" style="margin-top:10px;">Individual Performance</div>
+      <div class="sec-title">개인 성과 등급</div>
+      <div style="font-size:7.5pt;line-height:2;color:#444;">
+        <div>🟡 카카오뱅크 개인성과 <strong>S등급</strong> ('23, '24, '25)</div>
+        <div>🔵 삼성전자 개인성과 <strong>가 등급</strong> ('22)</div>
+        <div>🔴 LG유플러스 4년 연속 <strong>핵심인재</strong> ('17~'20)</div>
+        <div>🔴 LG유플러스 5년 연속 <strong>S등급</strong> ('16~'20)</div>
+      </div>
+    </div>
+
+    <!-- Patents -->
+    <div>
+      <div class="sec-label">Intellectual Property</div>
+      <div class="sec-title">기술 특허 4종</div>
+      <div>
+        <div class="patent-mini">
+          <div class="patent-num-badge">KR 1020140041595</div>
+          <h4>다자간 최적 만남 장소 설정 방법</h4>
+          <p>내비게이션 및 교통 데이터를 활용해 모든 참여자의 이동 조건을 최적화하는 알고리즘. 등록 2015.10.19</p>
+        </div>
+        <div class="patent-mini">
+          <div class="patent-num-badge">KR 1020140045545</div>
+          <h4>메시지 전송 제어 단말기 및 방법</h4>
+          <p>이벤트 신호를 처리하고 대응 전송 메시지를 생성하는 디바이스 및 방법. 등록 2017.02.02</p>
+        </div>
+        <div class="patent-mini">
+          <div class="patent-num-badge">KR 1020140137341</div>
+          <h4>안정적 네트워크 연결 단말기 및 방법</h4>
+          <p>접속 주소 수신 실패 시 강제 재시작 없이 정상 동작 보장하는 네트워크 연결 기술. 등록 2016.07.25</p>
+        </div>
+        <div class="patent-mini">
+          <div class="patent-num-badge">KR 1020140031228</div>
+          <h4>음성 패킷 전달 방법 및 단말기</h4>
+          <p>네트워크 혼잡 상황에서 음성 패킷 전송을 안정적으로 처리하는 방법. 등록 2015.10.07</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" style="margin: 14px 0;">
+
+  <!-- Contact -->
+  <div style="background:linear-gradient(135deg,#1e3a8a,#2563EB);border-radius:12px;padding:16px 20px;color:#fff;display:flex;justify-content:space-between;align-items:center;">
+    <div>
+      <div style="font-size:7pt;opacity:0.7;margin-bottom:4px;letter-spacing:1px;text-transform:uppercase;">Contact</div>
+      <div style="font-size:13pt;font-weight:900;margin-bottom:4px;">데이터로 문제를 정의하고, AI로 답을 만드는 기획자</div>
+      <div style="font-size:8pt;opacity:0.8;">도메인 인사이트와 데이터가 만나는 곳에서 사용자 경험과 비즈니스 성과를 함께 설계합니다.</div>
+    </div>
+    <div style="text-align:right;font-size:8pt;opacity:0.9;line-height:2;white-space:nowrap;margin-left:20px;">
+      <div>✉ newlife.ansh@gmail.com</div>
+      <div>📱 010-5784-0715</div>
+      <div>🌐 newlifeansh.github.io/portfolio-v2</div>
+      <div>© 2026 안석환 · 특허 4종 · 수상 6회</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
